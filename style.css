@@ -1,0 +1,575 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    width:100vw;
+    height:100vh;
+
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        #FFE4EC,
+        #FFD6EC,
+        #FFF2F6
+    );
+
+}
+
+
+/* ===========================
+   CONTAINER
+=========================== */
+
+.container{
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+}
+
+
+/* ===========================
+   CARD
+=========================== */
+
+.card{
+
+    width:500px;
+    max-width:90vw;
+
+    min-height:560px;
+
+    background:rgba(255,255,255,.82);
+
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.5);
+
+    border-radius:30px;
+
+    padding:40px;
+
+    text-align:center;
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.12);
+
+    transition:.4s;
+
+}
+
+/* ===========================
+   PAGE
+=========================== */
+
+.page{
+
+    display:none;
+
+    width:100%;
+
+    animation:fadePage .5s ease;
+
+}
+
+.page.active{
+
+    display:block;
+
+}
+
+@keyframes fadePage{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ===========================
+   TITLE
+=========================== */
+
+#title{
+
+    font-size:34px;
+
+    font-weight:700;
+
+    color:#444;
+
+    margin-bottom:18px;
+
+}
+
+
+/* ===========================
+   DESCRIPTION
+=========================== */
+
+#text{
+
+    color:#666;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    min-height:110px;
+
+    margin-bottom:35px;
+
+}
+
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+
+/* ===========================
+   BUTTON
+=========================== */
+
+button{
+
+    border:none;
+
+    cursor:pointer;
+
+    border-radius:50px;
+
+    width:135px;
+
+    height:55px;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    font-family:'Poppins',sans-serif;
+
+    transition:.35s;
+
+}
+
+
+/* ===========================
+   NEXT
+=========================== */
+
+#nextBtn{
+
+    width:170px;
+
+    background:#FF7FAE;
+
+}
+
+#nextBtn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+/* ===========================
+   YES
+=========================== */
+
+#yesBtn{
+
+    display:none;
+
+    background:#7ED957;
+
+    box-shadow:
+        0 10px 20px rgba(126,217,87,.35);
+
+}
+
+
+/* ===========================
+   NO
+=========================== */
+
+#noBtn{
+
+    display:none;
+
+    background:#FF8FAB;
+
+    box-shadow:
+        0 10px 20px rgba(255,143,171,.35);
+
+}
+
+
+/* ===========================
+   FADE
+=========================== */
+
+.fade-out{
+
+    opacity:0;
+
+    transform:scale(.95);
+
+}
+
+.fade-in{
+
+    opacity:1;
+
+    transform:scale(1);
+
+}
+
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:600px){
+
+    .card{
+
+        padding:30px;
+
+        min-height:300px;
+        position: relative;
+
+    }
+
+    #title{
+
+        font-size:28px;
+
+    }
+
+    #text{
+
+        font-size:17px;
+
+    }
+
+    button{
+
+        width:120px;
+
+        height:50px;
+
+        font-size:16px;
+
+    }
+
+}
+
+#topImage,
+#bottomImage{
+
+    display:none;
+
+    width:170px;
+
+    max-width:100%;
+
+    height:auto;
+
+    margin:20px auto;
+
+    object-fit:contain;
+
+}
+
+.show-image{
+
+    animation:pop .5s ease;
+
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+button:active{
+
+    transform:scale(.95);
+
+}
+
+/* ==========================
+   SUCCESS
+========================== */
+
+#successImage{
+
+
+    width:220px;
+    display:none;
+    margin:auto;
+
+    animation:pop .5s ease;
+
+}
+
+#giftContainer{
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    gap:25px;
+
+    margin-top:35px;
+
+    flex-wrap:wrap;
+
+}
+
+.gift{
+
+    width:100px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.gift img{
+
+    width:85px;
+
+}
+
+.gift p{
+
+    margin-top:10px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:#666;
+
+}
+
+.gift:hover{
+
+    transform:translateY(-6px);
+
+}
+
+@keyframes pop{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.8);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ===========================
+   QUESTION
+=========================== */
+
+#questionTitle{
+
+    font-size:34px;
+
+    color:#444;
+
+    margin-bottom:18px;
+
+}
+
+#questionText{
+
+    font-size:18px;
+
+    color:#666;
+
+    line-height:1.7;
+
+    margin-bottom:20px;
+
+}
+
+/* ===========================
+   SUCCESS
+=========================== */
+
+#successTitle{
+
+    font-size:32px;
+
+    color:#444;
+
+    margin-top:20px;
+
+}
+
+#successText{
+
+    color:#666;
+
+    font-size:18px;
+
+    line-height:1.7;
+
+    margin-top:15px;
+
+}
+
+/* ===========================
+   LAST BUTTON
+=========================== */
+
+#lastBtn{
+
+    display:none;
+
+    margin:35px auto 0;
+
+    width:220px;
+
+    background:#FF7FAE;
+
+}
+
+/* ===========================
+   GIFT PAGE
+=========================== */
+
+#giftPage{
+
+    text-align:center;
+
+}
+
+#backBtn{
+
+    background:#888;
+
+    width:120px;
+
+    margin-bottom:30px;
+
+}
+
+#giftContent{
+
+    min-height:320px;
+
+}
+
+/* ===========================
+   ENDING
+=========================== */
+
+#endingTitle{
+
+    font-size:45px;
+
+    margin-bottom:25px;
+
+}
+
+#endingText{
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    color:#666;
+
+}
+
+#credit{
+
+    margin-top:45px;
+
+    color:#999;
+
+    font-size:14px;
+
+    font-style:italic;
+
+}
+
+.hidden{
+
+    opacity:0;
+
+    transform:scale(.7);
+
+}
+
+.show{
+
+    opacity:1;
+
+    transform:scale(1);
+
+    transition:.4s;
+
+}
