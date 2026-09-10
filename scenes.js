@@ -3,73 +3,73 @@ const scenes = [
     {
         type: "text",
 
-        title: "Hey...",
-        text: "Thank you for opening this little website.",
+        title: "heyyyy",
+        text: "thank you for opening this little website.",
 
-        button: "Hi 👋"
+        button: "Hi"
     },
 
     {
         type: "text",
 
-        title: "Before anything else...",
-        text: "I hope you're having a wonderful day today.",
+        title: "before anything else",
+        text: "i hope you're having a wonderful day today.",
 
-        button: "Continue"
+        button: "continue"
     },
 
     {
         type: "text",
 
-        title: "Actually...",
+        title: "eumm actuallyy",
         text: "There's a reason why I sent you this link.",
 
-        button: "Really?"
+        button: "really?"
     },
 
     {
         type: "text",
 
-        title: "Don't worry...",
-        text: "It's nothing scary, I promise ",
+        title: "don't worry",
+        text: "it's nothing scary, i promise wkwkwk",
 
-        button: "Okay..."
+        button: "okayy"
     },
 
     {
         type: "text",
 
-        title: "I just wanted...",
+        title: "i just wanted",
         text: "to tell you something in a slightly different way.",
 
-        button: "Go on"
+        button: "go on"
     },
 
     {
         type: "text",
 
-        title: "So...",
-        text: "Can you promise me one thing before we continue?",
+        title: "so",
+        text: "can you promise me one thing before we continue?",
 
-        button: "What's that?"
+        button: "what's that?"
     },
 
     {
         type: "text",
 
-        title: "Promise me...",
+        title: "promise me",
         text: "that you'll answer my next question honestly.",
 
-        button: "I Promise"
+        button: "i Promise"
     },
 
     {
         type: "text",
 
-        title: "Alright...",
-        text: "Take a deep breath... because here comes the question.",
+        title: "awwightt",
+        text: "take a deep breath because here comes the question.",
 
-        button: "I'm Ready"
+        button: "i'm ready"
     },
 
     {
