@@ -1,58 +1,33 @@
 console.log("Script Loaded!");
 
-// ======================
-// ELEMENT
-// ======================
-
-// Page
 const introPage = document.getElementById("introPage");
 const questionPage = document.getElementById("questionPage");
 const successPage = document.getElementById("successPage");
 const giftPage = document.getElementById("giftPage");
 const endingPage = document.getElementById("endingPage");
-
-// Intro
 const title = document.getElementById("title");
 const text = document.getElementById("text");
 const nextBtn = document.getElementById("nextBtn");
-
-// Question
 const questionTitle = document.getElementById("questionTitle");
 const questionText = document.getElementById("questionText");
 const topImage = document.getElementById("topImage");
 const bottomImage = document.getElementById("bottomImage");
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
-
-// Success
 const successImage = document.getElementById("successImage");
 const successTitle = document.getElementById("successTitle");
 const successText = document.getElementById("successText");
 const giftContainer = document.getElementById("giftContainer");
 const lastBtn = document.getElementById("lastBtn");
-
-// Gift
 const backBtn = document.getElementById("backBtn");
 const giftContent = document.getElementById("giftContent");
-
-// Ending
 const endingTitle = document.getElementById("endingTitle");
 const endingText = document.getElementById("endingText");
-
-// Card
 const card = document.querySelector(".card");
-
-
-// ======================
-// VARIABLE
-// ======================
 
 let currentScene = 0;
 
 
-// ======================
-// START
-// ======================
 
 window.onload = () => {
 
@@ -61,11 +36,6 @@ window.onload = () => {
     renderScene();
 
 };
-
-
-// ======================
-// SHOW PAGE
-// ======================
 
 function showPage(page){
 
@@ -113,7 +83,7 @@ function showQuestionPage(){
     yesBtn.style.transform = "scale(1)";
     showPage(questionPage);
 
-    questionTitle.textContent = "Will you be mine?";
+    questionTitle.textContent = "can i be ur mine?";
 
     questionText.textContent =
         "Choose carefullyy";
@@ -140,7 +110,7 @@ function showSuccessPage(){
         "YAYYYYY ";
 
     successText.textContent =
-        "I knew you'd say YES!";
+        "i knew you'd say YES!!!!!!";
 
     successImage.style.display = "block";
 
