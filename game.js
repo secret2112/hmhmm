@@ -53,12 +53,12 @@ function initMuseum() {
     ========================= */
 
     const photos = [
-        "img/museum1.png",
-        "img/museum2.png",
-        "img/museum3.png",
-        "img/museum4.png",
-        "img/museum5.png",
-        "img/museum6.png"
+        // "img/museum1.png",
+        // "img/museum2.png",
+        // "img/museum3.png",
+        // "img/museum4.png",
+        // "img/museum5.png",
+        // "img/museum6.png"
     ];
 
     let currentIndex = 0;
