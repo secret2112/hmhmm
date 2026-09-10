@@ -1,15 +1,6 @@
-// ======================
-// VARIABLE
-// ======================
-
 let noClick = 0;
 
 let giftOpened = 0;
-
-
-// ======================
-// MOVE NO BUTTON
-// ======================
 
 function moveNoButton() {
 
@@ -55,10 +46,189 @@ function moveNoButton() {
 
 }
 
+function initMuseum() {
 
-// ======================
-// GROW YES
-// ======================
+    /* =========================
+       MUSEUM PHOTOS
+    ========================= */
+
+    const photos = [
+        "img/museum1.png",
+        "img/museum2.png",
+        "img/museum3.png",
+        "img/museum4.png",
+        "img/museum5.png",
+        "img/museum6.png"
+    ];
+
+    let currentIndex = 0;
+
+
+    /* =========================
+       ELEMENTS
+    ========================= */
+
+    const leftFrame = document.querySelector(".museum-left");
+    const mainFrame = document.querySelector(".museum-main");
+    const rightFrame = document.querySelector(".museum-right");
+
+    const leftImage = leftFrame.querySelector("img");
+    const mainImage = mainFrame.querySelector("img");
+    const rightImage = rightFrame.querySelector("img");
+
+    const prevBtn = document.querySelector(".museum-prev");
+    const nextBtn = document.querySelector(".museum-next");
+
+    const counter = document.getElementById("museumCurrent");
+
+
+    /* =========================
+       RENDER PHOTOS
+    ========================= */
+
+    function renderMuseum() {
+
+        const total = photos.length;
+
+        const leftIndex =
+            (currentIndex - 1 + total) % total;
+
+        const rightIndex =
+            (currentIndex + 1) % total;
+
+
+        /* LEFT */
+
+        leftImage.src = photos[leftIndex];
+
+
+        /* MAIN */
+
+        mainImage.src = photos[currentIndex];
+
+
+        /* RIGHT */
+
+        rightImage.src = photos[rightIndex];
+
+
+        /* COUNTER */
+
+        counter.textContent = currentIndex + 1;
+    }
+
+
+    /* =========================
+       NEXT
+    ========================= */
+
+    nextBtn.addEventListener("click", () => {
+
+        currentIndex++;
+
+        if (currentIndex >= photos.length) {
+            currentIndex = 0;
+        }
+
+        renderMuseum();
+
+    });
+
+
+    /* =========================
+       PREVIOUS
+    ========================= */
+
+    prevBtn.addEventListener("click", () => {
+
+        currentIndex--;
+
+        if (currentIndex < 0) {
+            currentIndex = photos.length - 1;
+        }
+
+        renderMuseum();
+
+    });
+
+
+    /* =========================
+       MUSIC PLAYER
+    ========================= */
+
+    const audio = document.getElementById("museumAudio");
+
+    const playBtn =
+        document.getElementById("museumPlayBtn");
+
+    const status =
+        document.getElementById("museumMusicStatus");
+
+
+
+    playBtn.addEventListener("click", async () => {
+
+        try {
+
+            if (audio.paused) {
+
+                await audio.play();
+
+                playBtn.textContent = "❚❚";
+
+                status.textContent =
+                    "Soundtrack playing";
+
+            } else {
+
+                audio.pause();
+
+                playBtn.textContent = "▶";
+
+                status.textContent =
+                    "Soundtrack paused";
+
+            }
+
+        } catch (error) {
+
+            console.error(
+                "Audio gagal dimainkan:",
+                error
+            );
+
+            status.textContent =
+                "Music couldn't be played";
+
+        }
+
+    });
+
+
+    audio.addEventListener("ended", () => {
+
+        playBtn.textContent = "▶";
+
+        status.textContent =
+            "Soundtrack off";
+
+    });
+
+
+    audio.addEventListener("error", () => {
+
+        console.error(
+            "File audio tidak ditemukan atau tidak dapat dimainkan."
+        );
+
+        status.textContent =
+            "Music unavailable";
+
+    });
+
+    renderMuseum();
+
+}
 
 function growYesButton() {
 
@@ -67,10 +237,6 @@ function growYesButton() {
 
 }
 
-
-// ======================
-// SHRINK NO
-// ======================
 
 function shrinkNoButton() {
 
@@ -146,53 +312,214 @@ function openGift(number){
 
     switch(number){
 
-        case 1:
+       case 1:
 
-            giftContent.innerHTML=`
+    giftContent.innerHTML = `
 
-                <h2>📸 Our Memories</h2>
+        <div class="museum">
 
-                <p>
+            <h2 class="museum-title">
+                MUSEUM OF USSSSSS WKWKWKWKWK
+            </h2>
 
-                    
 
+          <div class="museum-music">
+
+    <audio
+        id="museumAudio"
+        preload="metadata">
+
+        <source
+            src="img/ily.mp3"
+            type="audio/mpeg">
+
+    </audio>
+
+    <button
+        id="museumPlayBtn"
+        type="button">
+
+        ▶
+
+    </button>
+
+    <span
+        id="museumMusicStatus">
+
+        Soundtrack off
+
+    </span>
+
+</div>
+
+
+            <div class="museum-slider">
+
+                <button
+                    class="museum-nav museum-prev"
+                    type="button">
+
+                    ‹
+
+                </button>
+
+
+                <div class="museum-stage">
+
+                    <div class="museum-frame museum-left">
+
+                        <img
+                            src="img/museum6.png"
+                            alt="">
+
+                    </div>
+
+
+                    <div class="museum-frame museum-main">
+
+                        <img
+                            src="img/museum1.png"
+                            alt="">
+
+                    </div>
+
+
+                    <div class="museum-frame museum-right">
+
+                        <img
+                            src="img/museum2.png"
+                            alt="">
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="museum-nav museum-next"
+                    type="button">
+
+                    ›
+
+                </button>
+
+            </div>
+
+
+            <div class="museum-counter">
+
+                <span id="museumCurrent">
+                    1
+                </span>
+
+                /
+
+                <span>
+                    6
+                </span>
+
+            </div>
+
+        </div>
+
+    `;
+
+    initMuseum();
+
+break;
+
+       case 2:
+    giftContent.innerHTML = `
+
+        <div class="music-section">
+
+            <h5 class="music-description">
+                a song that reminds me of us (gaada konteks tapi emang ini gasi yang selalu dibahas tuu wkwkwkwk)
+            </h5>
+
+            <div class="music-player">
+
+                <img 
+                    src="img/ttkndr.jpeg" 
+                    alt="Titik Nadir"
+                    class="music-cover"
+                >
+
+                <div class="music-info">
+                    <h2>Titik Nadir</h2>
+                    <p>Kahitna, Monita Tahalea</p>
+                </div>
+
+                <audio id="musicAudio">
+                    <source src="img/titik nadir.mp3" type="audio/mpeg">
+                </audio>
+
+                <button id="musicPlayBtn" class="music-play-btn">
+                    ▶
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+    initMusicPlayer();
+break;
+
+      case 3:
+    giftContent.innerHTML = `
+
+        <div class="birthday-card">
+
+            <div class="birthday-card-cover">
+
+                <div class="birthday-card-bark"></div>
+
+                <img
+                    src="img/spider.jpeg"
+                    alt="Birthday Card"
+                >
+
+            </div>
+
+
+            <div class="birthday-card-details">
+
+                <h4 class="birthday-color1">
+                    just a letter
+                </h4>
+
+                <h4 class="birthday-color2">
+                    for You
+                </h4>
+
+
+                <p>Pada akhirnya Ini hanyalah sebuah kisah yang amat panjang</p>
+
+                <p>Tentang cinta yang menyadarkan kita bahwa, Manusia adalah budak bagi yang dicintainya</p>
+
+                <p>Hiduplah bertahun-tahun. lupakan tentang diriku Hiduplah dengan bebas</p>
+
+                <p></p>
+
+                <p></p>
+
+                <p>Kepadamu, 2000 tahun mulai sekarang</p>
+
+                <p>Darimu, 2000 tahun yang lalu</p>
+
+                <p class="birthday-text-right">
+                    -.......
                 </p>
 
-            `;
+            </div>
 
-        break;
+        </div>
 
-        case 2:
+    `;
 
-            giftContent.innerHTML=`
-
-                <h2> A Song That Reminds Me Of us (gatau kenapa tp rasanya emang ini yg buatku inget tu WKWKWKKWK)</h2>
-
-                <p>
-
-                
-
-                </p>
-
-            `;
-
-        break;
-
-        case 3:
-
-            giftContent.innerHTML=`
-
-                <h2>💌 A Little Letter</h2>
-
-                <p>
-
-                    my dearest allie
-
-                </p>
-
-            `;
-
-        break;
+break;
 
     }
 
@@ -201,11 +528,6 @@ function openGift(number){
     checkGift();
 
 }
-
-
-// ======================
-// CHECK GIFT
-// ======================
 
 function checkGift(){
 
@@ -229,36 +551,24 @@ function backToSuccess(){
 }
 
 
-// ======================
-// LAST PAGE
-// ======================
-
 function openEnding(){
 
     showEndingPage();
 
 }
 
-
-// ======================
-// EVENT
-// ======================
-
-// YES
 yesBtn.addEventListener("click",()=>{
 
     showSuccess();
 
 });
 
-// NO
 noBtn.addEventListener("click",()=>{
 
     handleNoClick();
 
 });
 
-// Mouse Move
 noBtn.addEventListener("mousemove",()=>{
 
     if(noClick<5){
@@ -269,7 +579,6 @@ noBtn.addEventListener("mousemove",()=>{
 
 });
 
-// Mobile
 noBtn.addEventListener("touchstart",()=>{
 
     if(noClick<5){
@@ -312,3 +621,34 @@ lastBtn.addEventListener("click",()=>{
     openEnding();
 
 });
+
+function initMusicPlayer(){
+
+    const musicAudio = document.getElementById("musicAudio");
+    const musicPlayBtn = document.getElementById("musicPlayBtn");
+
+    musicPlayBtn.addEventListener("click", () => {
+
+        if(musicAudio.paused){
+
+            musicAudio.play();
+
+            musicPlayBtn.textContent = "❚❚";
+
+        } else {
+
+            musicAudio.pause();
+
+            musicPlayBtn.textContent = "▶";
+
+        }
+
+    });
+
+    musicAudio.addEventListener("ended", () => {
+
+        musicPlayBtn.textContent = "▶";
+
+    });
+
+}
